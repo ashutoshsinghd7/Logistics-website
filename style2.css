@@ -1,0 +1,373 @@
+*{
+  box-sizing: border-box;
+}
+
+/*NAVBAR DESIGN*/
+.navbar {
+  z-index: 10;
+}
+
+.brand-text {
+  letter-spacing: 1px;
+}
+
+.nav-anim {
+  position: relative;
+}
+
+.nav-anim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #7ed957;
+  transition: 0.3s ease;
+}
+
+.nav-anim:hover::after {
+  width: 100%;
+}
+
+/*HERO SECTION*/
+
+
+.hero-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Swiper takes full screen */
+.hero-swiper,
+.hero-slide {
+  height: 100vh;
+}
+
+.hero-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 1.25rem;        /* Bigger than badge */
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7ed957;            /* Your green */
+  margin-bottom: 12px;
+}
+
+/* Dark overlay for readability */
+.hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+/* Content on top */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.call-box {
+  width: 100%;
+  max-width: 360px;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-radius: 8px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Label: Call Us Now */
+.call-box .call-label {
+  font-size: 1rem;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.98);
+  margin-bottom: 10px;
+}
+
+/* Typewriter number */
+.call-box h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #7ed957;
+  margin: 6px 0;
+  min-height: 42px;
+}
+
+/* Support text */
+.call-box .call-sub {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 6px;
+}
+
+/* Glow animation */
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 0 rgba(126,217,87,0); }
+  50%  { box-shadow: 0 0 28px rgba(126,217,87,0.28); }
+  100% { box-shadow: 0 0 0 rgba(126,217,87,0); }
+}
+
+/* Mobile safety */
+@media (max-width: 768px) {
+  .call-box {
+    padding: 22px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+/*Cursor blinking effect*/
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #7ed957;
+  font-weight: 700;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+/*About Us Section*/
+.section-eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #7ed957;
+}
+
+.about-section {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(126,217,87,0.18), transparent 45%),
+    linear-gradient(180deg, #15241d 0%, #e9f3ec 100%);
+  color: #102019;
+}
+.about-section p {
+  color: #1e2f27;
+}
+
+.about-section .section-title {
+  color: #0f2b1e;
+}
+
+
+
+
+.section-title {
+  font-weight: 700;
+}
+.about-logo {
+  max-width: 220px;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/*animated style*/
+.stat-box {
+  padding: 20px;
+}
+
+.stat-box h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #7ed957;
+}
+
+.stat-box p {
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/*review card*/
+
+
+.review-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+
+  border: 2px solid rgba(126, 217, 87, 0.6);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.18);
+}
+
+/* Stars */
+.review-stars {
+  color: #7ed957;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* Review text */
+.review-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: #333;
+  position: relative;
+}
+
+/* Footer */
+.review-footer {
+  margin-top: 18px;
+}
+
+.review-footer h6 {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.review-footer span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.review-text::before {
+  content: "“";
+  font-size: 3rem;
+  color: rgba(126, 217, 87, 0.2);
+  position: absolute;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+/*scroll behaviour*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*===============Services Section=========================*/
+
+.services-section {
+  padding: 100px 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(126,217,87,0.14), transparent 40%),
+    radial-gradient(circle at 75% 85%, rgba(126,217,87,0.10), transparent 45%),
+    linear-gradient(180deg, #0b120f 0%, #e6efe9 100%);
+}
+
+
+
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 120px;
+}
+
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image */
+.service-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 5px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* Text */
+.service-content {
+  max-width: 480px;
+}
+
+.service-content p {
+  margin-top: 18px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* WHITE TITLE BOX (important) */
+.service-title-box {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 12px 22px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+.service-row {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  padding: 60px;
+  border-radius: 18px;
+}
+.services-section .service-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.service-content {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 36px 40px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+
+
+
+
+
+
+/*MOBILE HANDLING*/
+@media (max-width: 768px) {
+  .service-row,
+  .service-row.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+
+  .service-title-box {
+    font-size: 1.25rem;
+  }
+}
