@@ -637,3 +637,28 @@ html {
 .hero-wrapper {
   height: 100svh;
 }
+
+
+
+/* Prevent horizontal overflow globally */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Fix loader */
+#global-loader {
+  width: 100%;
+}
+
+/* Swiper safety */
+.hero-swiper {
+  overflow: hidden;
+}
+
+/* Mobile padding fix */
+@media (max-width: 768px) {
+  .service-row {
+    padding: 30px 20px;
+  }
+}
+
