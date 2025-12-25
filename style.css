@@ -315,14 +315,20 @@
     linear-gradient(180deg, #15241d 0%, #e9f3ec 100%);
   color: #102019;
 }
+
+.about-section .section-title,
 .about-section p {
-  color: #1e2f27;
+  color: #ffffff;
 }
 
 .about-section .section-title {
-  color: #0f2b1e;
+  font-weight: 800;
 }
 
+
+.about-section p {
+  opacity: 0.95;
+}
 
 
 
