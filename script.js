@@ -88,30 +88,47 @@ if (document.querySelector(".review-swiper")) {
 }
 
 
-/* Counter animation*/
+/* Counter animation */
 const counters = document.querySelectorAll(".count");
 
 const animateCounter = (counter) => {
-  const target = +counter.dataset.target;
-  const isPercent = counter.textContent.includes('%');
-  const isPlus = counter.textContent.includes('+');
+  const target = Number(counter.dataset.target);
 
-  const duration = 2500; // 👈 TOTAL animation time in ms (increase this)
+  const initialText = counter.textContent;
+  const isK = initialText.includes("k");
+  const isPercent = initialText.includes("%");
+  const isPlus = initialText.includes("+") && !isK;
+
+  const duration = 2500;
   const startTime = performance.now();
 
   const update = (currentTime) => {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-
     const value = Math.floor(progress * target);
-    counter.textContent =
-      value + (isPercent ? '%' : isPlus ? '+' : '');
+
+    if (isK) {
+      counter.textContent = value + "k+";
+    } else if (isPercent) {
+      counter.textContent = value + "%";
+    } else if (isPlus) {
+      counter.textContent = value + "+";
+    } else {
+      counter.textContent = value;
+    }
 
     if (progress < 1) {
       requestAnimationFrame(update);
     } else {
-      counter.textContent =
-        target + (isPercent ? '%' : isPlus ? '+' : '');
+      if (isK) {
+        counter.textContent = target + "k+";
+      } else if (isPercent) {
+        counter.textContent = target + "%";
+      } else if (isPlus) {
+        counter.textContent = target + "+";
+      } else {
+        counter.textContent = target;
+      }
     }
   };
 
@@ -134,6 +151,23 @@ if (aboutSection) {
   observer.observe(aboutSection);
 }
 
+/*
+/* Trigger once when About section enters view 
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      counters.forEach(counter => animateCounter(counter));
+      observer.disconnect();
+    }
+  },
+  { threshold: 0.5 }
+);
+
+const aboutSection = document.querySelector(".about-section");
+if (aboutSection) {
+  observer.observe(aboutSection);
+}*/
+
 
 /*====================Customer Care===========================*/
 const scriptURL =
@@ -147,11 +181,7 @@ if (form) {
 
     const formData = new FormData(form);
 
-    formData.append(
-      "age",
-      document.getElementById("age").checked ? "Yes" : "No"
-    );
-
+    
     formData.append(
       "ex",
       document.getElementById("ex").checked ? "Yes" : "No"
@@ -182,7 +212,7 @@ const loaderAnimation = lottie.loadAnimation({
 });
 
 // Minimum loader time (UX polish)
-const MIN_LOADER_TIME = 4000; // 4s
+const MIN_LOADER_TIME = 4500; // 4.5s
 const startTime = Date.now();
 
 window.addEventListener("load", () => {
