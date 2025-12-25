@@ -135,7 +135,81 @@ if (aboutSection) {
 }
 
 
-/*====================Services Section===========================*/
+/*====================Customer Care===========================*/
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbwzKd-rq3kivBYgRbMTZLXzrBF6x0Ypqg56mOyEG-gWRwkuk8KvehKxGRHbhKUj7Lma/exec";
+
+const form = document.getElementById("submit-to-google-sheet");
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    formData.append(
+      "age",
+      document.getElementById("age").checked ? "Yes" : "No"
+    );
+
+    formData.append(
+      "ex",
+      document.getElementById("ex").checked ? "Yes" : "No"
+    );
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: formData
+    })
+      .then(() => {
+        Swal.fire("Done", "Submitted Successfully.", "success");
+        form.reset();
+      })
+      .catch(() => {
+        Swal.fire("Error", "Something went wrong!", "error");
+      });
+  });
+}
+
+
+// Load Lottie animation
+const loaderAnimation = lottie.loadAnimation({
+  container: document.getElementById("loader-lottie"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "Warehouse_Delivery.json" // your JSON file
+});
+
+// Minimum loader time (UX polish)
+const MIN_LOADER_TIME = 4000; // 4s
+const startTime = Date.now();
+
+window.addEventListener("load", () => {
+  const elapsed = Date.now() - startTime;
+  const remaining = Math.max(MIN_LOADER_TIME - elapsed, 0);
+
+  setTimeout(() => {
+    gsap.to("#global-loader", {
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      onComplete: () => {
+        document.getElementById("global-loader").remove();
+      }
+    });
+  }, remaining);
+});
+document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    const nav = document.getElementById("navMenu");
+    const bsCollapse = bootstrap.Collapse.getInstance(nav);
+    if (bsCollapse) bsCollapse.hide();
+  });
+});
+
+
+
 
 });
 
