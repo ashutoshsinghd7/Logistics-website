@@ -23,23 +23,35 @@
 
 </head>
 <body>
+  <!-- Global Loader -->
+<div id="global-loader">
+  <div id="loader-lottie"></div>
+</div>
+
 <!--NAVBAR CODE-->
 <nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold fs-3 brand-text" href="#">
-      Sunrise Packers & Movers
+    <a class="navbar-brand fw-bold brand-text" href="#">
+      <span class="brand-main">Sunrise</span>
+      <span class="brand-sub">Packers & Movers</span>
     </a>
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-close-icon">✕</span>
+      </button>
 
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav gap-lg-4">
         <li class="nav-item"><a class="nav-link nav-anim" href="#">Home</a></li>
         <li class="nav-item"><a class="nav-link nav-anim" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link nav-anim" href="#service">Services</a></li>
-        <li class="nav-item"><a class="nav-link nav-anim" href="#">Contact</a></li>
+        <li class="nav-item"><a class="nav-link nav-anim" href="#customer-care">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -76,7 +88,7 @@
 
           <div class="mt-4">
             <a href="#" class="btn btn-success btn-lg me-3">Get Quote</a>
-            <a href="tel:+919999999999" class="btn btn-outline-light btn-lg">Call Now</a>
+            <a href="tel:+919689999793" class="btn btn-outline-light btn-lg">Call Now</a>
           </div>
         </div>
 
@@ -322,22 +334,133 @@
 
 
 </section>
+<!--Customer care-->
+<section id="customer-care" class="py-5 bg-light">
+  <div class="container">
 
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Customer Care</h2>
+      <p class="text-muted">
+        Have a question or need help? Reach out to us.
+      </p>
+    </div>
+
+    <div class="row align-items-center justify-content-center customer-care-wrap">
+
+      <!-- LEFT: Form -->
+      <div class="col-lg-6 col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+
+            <form id="submit-to-google-sheet">
+
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" name="name" required />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Contact Number</label>
+                <input class="form-control" name="contact_number" required />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-select" name="gender" required>
+                  <option value="" disabled selected>Select</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="3" required></textarea>
+              </div>
+
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="age">
+                <label class="form-check-label" for="age">
+                  I am above 18 years old
+                </label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="ex" required>
+                <label class="form-check-label" for="ex">
+                  I agree to the terms & policies
+                </label>
+              </div>
+
+              <button class="btn btn-success w-100" type="submit">
+                Submit
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Logo -->
+      <div class="col-lg-4 d-flex justify-content-center mt-4 mt-lg-0">
+        <div class="customer-logo">
+          <img src="Sunrise_logo.png" alt="Sunrise Packers & Movers Logo">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!--Footer-->
+<footer class="site-footer bg-dark text-light py-4">
+  <div class="container footer-inner">
+
+    <!-- LEFT: Text -->
+    <div class="footer-text">
+      <p class="mb-1 fw-semibold">Sunrise Packers & Movers</p>
+      <p class="mb-1 small">
+        Reliable logistics & transport services across India
+      </p>
+      <p class="small mb-0">
+        © 2025 Sunrise Packers & Movers. <br />
+        Made by Structify Digital. All rights reserved.
+      </p>
+    </div>
+
+    <!-- RIGHT: Logo -->
+    <div class="footer-logo">
+      <img src="Sunrise_logo.png" alt="Company Logo">
+    </div>
+
+  </div>
+</footer>
+
+<!--end-->
 
 <!--DEPENDENCIES DO NOT TOUCH-->
 <!--AOS-->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <!--AOS ending-->
 
 <!--Swiper js-->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 <!--Bootstrap js-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script  defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
- <script src="script.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
+ <script defer src="script.js"></script>
 <!--DEPENDENCIES DO NOT TOUCH-->
 </body>
 </html>
