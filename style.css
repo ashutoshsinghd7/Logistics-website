@@ -196,10 +196,20 @@
   background-position: center;
 }
 
-.swiper,
-.swiper-wrapper {
+
+.hero-swiper,
+.hero-swiper .swiper-wrapper {
   overflow: hidden;
 }
+
+.review-swiper {
+  overflow: visible;
+}
+.review-swiper .swiper-slide {
+  height: auto;
+}
+
+
 
 .hero-eyebrow {
   display: inline-block;
