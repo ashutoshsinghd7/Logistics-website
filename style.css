@@ -316,8 +316,8 @@
   color: #102019;
 }
 
-.about-section .section-title,
-.about-section p {
+.about-section > .container > .row:first-child p,
+.about-section > .container > .row:first-child .section-title {
   color: #ffffff;
 }
 
